@@ -16,16 +16,39 @@ public class BubbleSort {
 		int[] arr = {2,7,1,9,3,5,8,4,6,0};
 		
 //		Print array
-		System.out.println("Sorted : " + Arrays.toString(arr));
+		System.out.println("Before sorting : " + Arrays.toString(arr));
 		
 //		Pass to bubble sort function
 		bubbleSort(arr);
 		
 		improvedBubbleSort(arr);
 		
+		moreImprovedBubbleSort(arr);
+		
 //		Print sorted array
-		System.out.println("Sorted : " + Arrays.toString(arr));
+		System.out.println("After sorting: " + Arrays.toString(arr));
 
+	}
+
+	private static void moreImprovedBubbleSort(int[] arr) {
+		for(int i = 0; i < arr.length-1; i++) {
+//			track if values are swapped or not
+			boolean swap = false;
+//			Below modification in condition will reduce the number of passes
+//			for already sorted data set
+			for(int j = 0; j < arr.length-1-i; j++) {
+//				Compare two adjacent elements and swap them if needed
+				if(arr[j] > arr[j+1]) {
+					swap(arr, j);
+					swap = true;
+				}
+			}
+			System.out.println(Arrays.toString(arr));
+//			If there isn't any single swap then array is already sorted
+			if(swap == false)
+				break;
+		}
+		
 	}
 
 	private static void improvedBubbleSort(int[] arr) {
