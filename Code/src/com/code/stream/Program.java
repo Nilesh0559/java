@@ -7,9 +7,27 @@ import java.util.stream.Collectors;
 public class Program {
 
 	/*
-	 * Write a Java program to count the number of strings in a list that start with a specific letter using streams.
+	 * Write a Java program to sort a list of strings in alphabetical order, ascending and descending using streams.
 	 */
 	public static void main(String[] args) {
+		List<String> colors = Arrays.asList("Red", "Green", "Blue", "Pink", "Brown");
+		System.out.println(colors.toString());
+		List<String> ascColors = colors.stream()
+			.map(String::toLowerCase)
+			.sorted()
+			.collect(Collectors.toList());
+		System.out.println("Ascending order: " + ascColors);
+		List<String> descColors = colors.stream()
+			.map(String::toLowerCase)
+			.sorted((str1, str2) -> str2.charAt(0) - str1.charAt(0))
+			.collect(Collectors.toList());
+		System.out.println("Descending order: " + descColors);
+	}
+	
+	/*
+	 * Write a Java program to count the number of strings in a list that start with a specific letter using streams.
+	 */
+	public static void main5(String[] args) {
 		List<String> colors = Arrays.asList("Red", "Green", "Blue", "Pink", "Brown");
 		System.out.println(colors.toString());
 		long colorsStartingWithB = colors.stream()
