@@ -7,9 +7,22 @@ import java.util.stream.Collectors;
 public class Program {
 
 	/*
-	 * Write a Java program to remove all duplicate elements from a list using streams.
+	 * Write a Java program to count the number of strings in a list that start with a specific letter using streams.
 	 */
 	public static void main(String[] args) {
+		List<String> colors = Arrays.asList("Red", "Green", "Blue", "Pink", "Brown");
+		System.out.println(colors.toString());
+		long colorsStartingWithB = colors.stream()
+			.map(String::toLowerCase)
+			.filter(color -> color.startsWith("b"))
+			.count();
+		System.out.println("Count of colors starting with B: " + colorsStartingWithB);
+	}
+	
+	/*
+	 * Write a Java program to remove all duplicate elements from a list using streams.
+	 */
+	public static void main4(String[] args) {
 		List<Integer> nums = Arrays.asList(10, 23, 22, 23, 24, 24, 33, 15, 26, 15);
 		System.out.println(nums.toString());
 		List<Integer> distinct = nums.stream()
