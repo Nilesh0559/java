@@ -7,9 +7,21 @@ import java.util.stream.Collectors;
 public class Program {
 
 	/*
-	 * Write a Java program to calculate the sum of all even, odd numbers in a list using streams
+	 * Write a Java program to remove all duplicate elements from a list using streams.
 	 */
 	public static void main(String[] args) {
+		List<Integer> nums = Arrays.asList(10, 23, 22, 23, 24, 24, 33, 15, 26, 15);
+		System.out.println(nums.toString());
+		List<Integer> distinct = nums.stream()
+			.distinct()
+			.collect(Collectors.toList());
+		System.out.println(distinct.toString());
+	}
+	
+	/*
+	 * Write a Java program to calculate the sum of all even, odd numbers in a list using streams
+	 */
+	public static void main3(String[] args) {
 		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 		System.out.println(numbers.toString());
 		int even = numbers.stream()
