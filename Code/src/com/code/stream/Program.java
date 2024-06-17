@@ -7,9 +7,25 @@ import java.util.stream.Collectors;
 public class Program {
 
 	/*
-	 * Write a Java program to convert a list of strings to uppercase or lowercase using streams.
+	 * Write a Java program to calculate the sum of all even, odd numbers in a list using streams
 	 */
 	public static void main(String[] args) {
+		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+		System.out.println(numbers.toString());
+		int even = numbers.stream()
+			.filter(n -> n % 2 == 0)
+			.reduce(0, ((sum, num) -> sum + num));
+		System.out.println("Sum of even: " + even);
+		int odd = numbers.stream()
+			.filter(num -> num % 2 != 0)
+			.reduce(0, (sum, num) -> sum + num);
+		System.out.println("Sum of odd: " + odd);
+	}
+	
+	/*
+	 * Write a Java program to convert a list of strings to uppercase or lowercase using streams.
+	 */
+	public static void main2(String[] args) {
 		List<String> colors = Arrays.asList("RED", "grEEn", "white", "Orange", "pink");
 		System.out.println(colors.toString());
 		List<String> upperCase = colors.stream()
